@@ -4,7 +4,7 @@ import java.util.Stack;
 
 //150——逆波兰表达式求值
 public class NiBoLan {
-    public static void main(String args){
+    public static void main(String[] args){
         String[] tokens ={"2","1","+","3","*"};
         Solution_evalRPN se = new Solution_evalRPN();
         int res = se.evalRPN(tokens);
