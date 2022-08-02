@@ -8,7 +8,7 @@ public class gu_piao {
         System.out.println("最大收益为："+result);
     }
     public int maxProfit(int[] arr){
-        int profit[]=new int[arr.length];
+        int[] profit=new int[arr.length];
         profit[0]=0;
         int maxProfit=0;
         int curProfit;
