@@ -27,7 +27,15 @@ class Solution_zuiDaZiXuHe {
         return maxSum;
     }
     //方法一：动态规划
-//    public int maxSubArray2(int[] nums) {
-//
-//    }
+    public int maxSubArray2(int[] nums) {
+        int len = nums.length;
+        int[] dp = new int[len];
+        dp[0] = nums[0];
+        int maxValue = dp[0];
+        for(int i=0;i<len;i++){
+            dp[i] = Math.max(dp[i-1] + nums[i], nums[i]);
+            maxValue = Math.max(dp[i], maxValue);
+        }
+        return maxValue;
+    }
 }
