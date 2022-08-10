@@ -2,24 +2,24 @@ import java.util.Scanner;
 
 public class test {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int i;
-        while (sc.hasNext()){
-            i = sc.nextInt();
-            if (i == 200)
-                System.out.println("OK\n");
-            if (i == 202)
-                System.out.println("Accepted\n");
-            if (i == 400)
-                System.out.println("Bad Request\n");
-            if (i == 403)
-                System.out.println("Forbidden\n");
-            if (i == 404)
-                System.out.println("Not Found\n");
-            if (i == 500)
-                System.out.println("Internal Server Error\n");
-            else if (i == 502)
-                System.out.println("Bad Gateway\n");
+        String s="abba";
+        char[] ch = s.toCharArray();
+        boolean f = judgeS(ch);
+        System.out.println(f);
+    }
+    public static boolean judgeS(char[] arr){
+        int len = arr.length;
+        int start = 0, end = len-1;
+        while (start<len && end>0){
+            char ch1 = arr[start];
+            char ch2 = arr[end];
+            if(ch1 == ch2){
+                start++;
+                end--;
+            }else {
+                return false;
+            }
         }
+        return true;
     }
 }

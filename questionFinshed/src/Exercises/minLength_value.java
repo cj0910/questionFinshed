@@ -2,6 +2,7 @@ package Exercises;
 
 import java.util.Scanner;
 
+//长度最小子数组——题目描述： 给定一个含有 n 个正整数的数组和一个正整数 s ，找出数组中满足其和 ≥ s 的长度最小的连续子数组的长度。如果不存在符合条件的连续子数组，返回 0
 public class minLength_value {
     public static void main(String[] args){
 //        int target = 7;
@@ -25,19 +26,44 @@ public class minLength_value {
 //        System.out.println(b[j]+" ");//打印出来
 //        }
 class search{
+
     public int minSubArrayLen(int target,int[] nums){
         int resCmp = Integer.MAX_VALUE;
-        int left = 0;
+        int left = 0;//滑动窗口起始位置
         int sum = 0;
         int sumLength = 0;
         for(int right=0; right<nums.length;right++){
             sum += nums[right];
             while (sum >= target){
                 sumLength = right - left + 1;
-                resCmp = sumLength > resCmp ? resCmp : sumLength;
-                sum -= nums[left++];
+                resCmp = Math.min(sumLength, resCmp);
+                sum -= nums[left++]; // 这里是关键，不断变更left
             }
         }
         return resCmp == Integer.MAX_VALUE ? 0 : resCmp;
+    }
+
+    //长度最小子数组
+//Solution1 --暴力解法
+    int minSubArrayLen2(int target, int[] nums) {
+        int result = Integer.MAX_VALUE;
+        int sublength2 = 0;
+        for(int i = 0; i<nums.length; i++) {
+            int sum = 0;
+            for(int j = i; j<nums.length; j++) {
+                sum = sum + nums[j];
+                if(sum >= target) {
+                    sublength2 = j - i + 1;
+                    if(sublength2 < result) {
+                        result = sublength2;
+                    }
+                    break;
+                }
+            }
+        }
+        if(result != Integer.MAX_VALUE) {
+            return result;
+        }
+        return 0;
     }
 }
