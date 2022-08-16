@@ -5,7 +5,7 @@ public class zscf {
 
     }
 }
-
+//不太懂这个题目
 class Solution_343 {
     public int integerBreak(int n) {
         int[] dp = new int[n+1];

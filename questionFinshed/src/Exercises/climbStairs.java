@@ -15,10 +15,11 @@ public class climbStairs {
     public static int getMaxSum(int n, int m){
         int[] dp = new int[n+1];
         dp[0] = 1;
+        dp[1] = 1;
         for(int i=0;i<=n;i++){//遍历背包
             for (int j=1;j<=m;j++) {//遍历物品
                 if(i-j >= 0){
-                    dp[i] = dp[i] + dp[i-j];
+                    dp[i] += dp[i-j];
                 }
             }
         }
