@@ -1,6 +1,6 @@
 package Exercises;
 
-//给定一个只包含正整数的非空数组。是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
+//分割等和子集：给定一个只包含正整数的非空数组。是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
 public class fgdhzj_416 {
     public static void main(String[] args) {
         solution_canPartition aa = new solution_canPartition();
